@@ -19,7 +19,7 @@ Praticar
 <h2>Preenchimento Automatido de endereço</h2>
 
 <a href = "https://romulomax47.github.io/Projetos-Js/Autocompleta-de-endere-o/">
-<img src = "./img/imgpreenchimentoautomatico" width = "250px">
+<img src = "./img/imgpreenchimentoautomatico.png" width = "250px">
  </a>
 </td>
 

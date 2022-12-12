@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.btn{
+
+    font-weight: bold;
+    background: none;
+    border: none;
+
+    width: fit-content;
+    padding: 6px 10px;
+
+    color: white;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: ce; */
+}
+
+
+header{
+    width: 100%;
+    background-color: blue;
+    padding: 10px 0;
+    
+    display: flex;
+
+    justify-content: center;
+
+    color: white;
+
+}
+
+header .header{
+    width: min(600px, 100%);
+    padding: 10px ;
+}
+
+section{
+    width: 100%;
+    height: fit-content;
+    
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+
+
+    margin-top:  100px;
+}
+
+section form{
+    width: min(600px, 100%);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+section form .inputs{
+    
+    display: flex;
+    
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+section form input{
+    width: min(100px, 100%);
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #333;
+
+    
+}
+
+section form .card-btns{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+section form input:focus{
+    outline: 0;
+}
+
+section form .card-btns .btn-calcular{
+    background: green;
+}
+
+section form .card-btns .btn-limpar{
+    background: red;
+}
+
+footer{
+    width: min(600px, 100%);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin-top: 50px;
+}
+
+footer .media{
+    width: 300px ;
+    height: 30px;
+
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+footer .card-situacao{
+    text-align: center;
+
+    padding: 10px;
+    /* color: white; */
+    font-weight: bolder;
+    width: 300px;
+
+    /* background-color: red; */
+}
+

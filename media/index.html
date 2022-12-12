@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Media</title>
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <h1>Média</h1>
+        </div>
+    </header>
+
+
+    <section>
+
+        <form action="">
+            <div class="inputs">
+
+                <input type="number" min = '0' max= '10' name="nota1" id="nota1" class="nota1" required placeholder="Nota 1">
+    
+    
+                <input type="number" min = '0' max= 10 name="nota1" id="nota1" class="nota2" required placeholder="Nota 2">
+            </div>
+
+            <div class="card-btns">
+
+                <button class="btn btn-calcular"  data-acao = "calcular" type="button">Calcular</button>
+                <button class="btn btn-limpar" data-acao = "limpar" type="button">Limpar</button>
+            </div>
+        </form>
+
+
+    </section>
+
+    <footer>
+        <h2>Média</h2>
+        <input type="text" name="media" id="media" class="media" disabled value="">  
+
+        <div class="card-situacao">
+            <span>
+                Situação Final
+            </span>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

@@ -21,7 +21,9 @@
 
 <body>
     <main>
-        <h1>Filmes Pupulares</h1>
+        <header>
+            <h1>Filmes Pupulares</h1>
+        </header>
 
         <form action="">
 
@@ -29,7 +31,7 @@
             <img src="./img/icons8-search-30.png " alt="">
         </form>
 
-        <div class="showFavoritos">
+        <div class="checkbox">
             <input type="checkbox" name="favorito" id="favoritos">
             <label for="favoritos">Mostra apenas meus filmes favoritos</label>
         </div>
@@ -38,40 +40,45 @@
         <section class="container">
             <div class="cardMovie">
                 <div class="movieInfo">
-                    <div>
+
+                    <figure>
                         <img src="./img/images.png" width="150px">
 
-                    </div>
+                    </figure>
 
                     <div class="actions">
 
                         <h4 class="titulo-filme" id="txt">Avatar 2010</h4>
 
                         <div class="informaçoes">
-                            <div class="star">
+                            <figure class="star">
                                     <img src="./img/star.png" alt="star">
                                 <span>9.2</span>
-                            </div>
+                            </figure>
 
-                            <div>
+                            <figure>
                                 <img src="./img/icons8-favorite-96.png" alt="icon-coração" width ="30px">
                              
-                            </div>
+                            </figure>
                         </div>
                     </div>
 
 
-                    <div class="descricao">
+                    <article class="descricao">
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             Laudantium, quam eaque placeat non neque odio totam maxime.
                             Tenetur qui eligendi sit quisquam quia pariatur voluptate?
                             Consectetur vel ut ipsum quibusdam!
                         </p>
-                    </div>
+                    </article>
 
                 </div>
 
+            </div>
+
+
+      
             </div>
 
         </section>

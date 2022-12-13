@@ -26,7 +26,7 @@ body{
 
 main{
     width: min(700px, 100%);
-
+    height: 80px;
     padding: 20px;
 }
 
@@ -60,10 +60,17 @@ main form img{
 main form input{
     width: 100%;
     height: 4rem;
-    
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
     border: none;
 }
-.showFavoritos {
+
+main form input:focus{
+    outline: 0;
+    
+}
+.checkbox {
     color: #ededed;
 
     margin-top: 1em;
@@ -71,8 +78,14 @@ main form input{
 
 section{
     width: 100%;
-
+    /* height: calc(100vh - 80px); */
     margin-top: 2em;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    overflow-y: auto;
     
 }
 
@@ -127,5 +140,5 @@ section .cardMovie  img{
 
 .descricao{
     font-weight: 300;
-    /* width:; */
+    font-size: 1.4rem;
 }

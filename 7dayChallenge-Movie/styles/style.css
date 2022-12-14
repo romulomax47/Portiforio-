@@ -89,7 +89,7 @@ section{
     
 }
 
-section .cardMovie .movieInfo{
+section .movie{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -102,7 +102,7 @@ section .cardMovie .movieInfo{
     padding: 5px 15px;
 }
 
-section .cardMovie  img{
+section figure img{
     border-radius: 50%;
 }
 

@@ -26,7 +26,16 @@ function renderMovie (movie) {
     movieElement.classList.add('movie')
     movieElement.setAttribute('id', id);
 
-    console.log(movieElement)
+
+    //POST FILVE
+
+    const cardMovie = document.createElement('figure');
+
+    const imgMovie = document.createElement('img');
+    imgMovie.src = img;
+    imgMovie.classList.add('img');
+    imgMovie.appendChild(cardMovie);
+    cardMovie.appendChild(movieElement)
 
 
 }

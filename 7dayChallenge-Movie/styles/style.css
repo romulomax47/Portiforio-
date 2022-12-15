@@ -102,7 +102,7 @@ section .movie{
     padding: 5px 15px;
 }
 
-section figure img{
+.img{
     border-radius: 50%;
 }
 

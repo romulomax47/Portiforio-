@@ -1,12 +1,8 @@
 
 import { api_key } from "./api/apiKey.js";
 import  getMovie from './getMovies.js';
-
+import serchMovie from './searchMovie.js'
 // btn pesquisar movie
-
-const btn = document.querySelector('#btn');
-btn.addEventListener('click', serchMovie);
-
 
 const movieContainer = document.querySelector('.container')
 window.onload = async function(){
@@ -17,19 +13,17 @@ window.onload = async function(){
 }
 
 
+const btn = document.querySelector('#btn');
 
-async function serchMovie() {
+btn.addEventListener('click', async () => {
+
     const formTitle = document.querySelector('#input-movie').value;
 
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=${api_key.api}&query= ${ formTitle } &language=en-US&page=1`
-
-    const get = await fetch(url);
-    
-    const {results} = await get.json();
-
+    const results  =  await serchMovie(formTitle);
     movieContainer.innerHTML = '';
+
     results.forEach(movie => renderMovie(movie));
-}
+});
 
 
 

@@ -2,16 +2,18 @@
 import { api_key } from "./api/apiKey.js";
 import  getMovie from './getMovies.js';
 import serchMovie from './searchMovie.js'
+const input = document.querySelector('#input-movie');
 // btn pesquisar movie
 
-const movieContainer = document.querySelector('.container')
+
+const movieContainer = document.querySelector('.container');
+
 window.onload = async function(){
 
     const movie  = await getMovie();
-    movie.forEach(movie => renderMovie(movie))
+    movie.forEach(movie => renderMovie(movie));
 
-}
-
+};
 
 const btn = document.querySelector('#btn');
 
@@ -25,6 +27,28 @@ btn.addEventListener('click', async () => {
     results.forEach(movie => renderMovie(movie));
 });
 
+input.addEventListener('keydown', function(event)  {
+    
+    if(event.keyCode == 13){
+        
+        event.preventDefault();
+    
+        buscarMovie();
+    }
+});
+
+async function buscarMovie() {
+    const inputMovie = input.value;
+
+    if(inputMovie != ''){
+        movieContainer.innerHTML = '';
+        const movie = await serchMovie(inputMovie);
+        console.log(movie)
+        movie.forEach( item => renderMovie(item))
+    }else{
+        alert('Preencha o campo!');
+    }
+}
 
 
 function renderMovie (movie) {
@@ -62,7 +86,7 @@ function renderMovie (movie) {
     
     
     const cardStar = document.createElement('figure')
-    cardStar.classList.add('star')
+    cardStar.classList.add('cardStar')
     const imgStar = document.createElement('img');
     imgStar.classList.add('star');
     imgStar.src = './img/star.png';
@@ -73,7 +97,6 @@ function renderMovie (movie) {
     cardStar.appendChild(span);
     infos.appendChild(cardStar);
 
-    
     //coração/
     const cardCora = document.createElement('figure')
     const imgCora = document.createElement('img');

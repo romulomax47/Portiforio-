@@ -4,11 +4,13 @@ import  getMovie from './getMovies.js';
 import serchMovie from './searchMovie.js'
 const input = document.querySelector('#input-movie');
 // btn pesquisar movie
+// const btn_coracao = document.querySelectorAll('.coracao')
+
 
 
 const movieContainer = document.querySelector('.container');
 
-window.onload = async function(){
+window.onload = async function(){''
 
     const movie  = await getMovie();
     movie.forEach(movie => renderMovie(movie));
@@ -53,7 +55,7 @@ async function buscarMovie() {
 
 function renderMovie (movie) {
     const {id, overview, poster_path, title, release_date, vote_average } = movie;
-
+    const isFavorito = false;
     const img = `https://image.tmdb.org/t/p/w500${poster_path}`
 
     const movieElement = document.createElement('div');
@@ -98,10 +100,13 @@ function renderMovie (movie) {
     infos.appendChild(cardStar);
 
     //coração/
-    const cardCora = document.createElement('figure')
+    const cardCora = document.createElement('figure');
+    cardCora.classList.add('coracao')
+    cardCora.addEventListener('click' , coracaoBtn)
     const imgCora = document.createElement('img');
+    imgCora.src = isFavorito ? './img/heart.png': './img/icons8-favorite-96.png';
+    imgCora.alt = 'icon-coração';
     imgCora.classList.add('cora')
-    imgCora.src = './img/heart.png';
     cardCora.appendChild(imgCora);
     infos.appendChild(cardCora);
 
@@ -112,5 +117,23 @@ function renderMovie (movie) {
     cardarticle.innerHTML = overview;
     movieElement.appendChild(cardarticle)
 
+}
+
+function coracaoBtn (e) {
+
+    // alert('ok')
+    const favorite = {
+        favorited :'./img/heart.png',
+        notFavotied : '/img/icons8-favorite-96.png'
+    }
+
+    console.log(e.target.src.includes(favorite.notFavotied))
+    if(e.target.src.includes(favorite.notFavotied)){
+        e.target.src = favorite.favorited;
+
+    }else{
+        e.target.src = './img/icons8-favorite-96.png'
+    }
+       
 }
 

@@ -1,20 +1,23 @@
 
-import { api_key } from "./api/apiKey.js";
+
+import { storage } from './helpers/localstorage.js'
 import  getMovie from './getMovies.js';
 import serchMovie from './searchMovie.js'
 const input = document.querySelector('#input-movie');
 const checkBoxStatus = document.querySelector('input[type="checkbox"]');
 
+
+
+
 checkBoxStatus.addEventListener('change', () => {
 
-    const movies =  getFilmeFavoritos() || [];
+    const movies =  storage.getFilmefavoritos() || [];
     console.log(movies)
 
     movieContainer.innerHTML = '';
     movies.forEach(e => renderMovie(e));
 
 })
-
 const movieContainer = document.querySelector('.container');
 
 window.onload = async function(){
@@ -62,7 +65,8 @@ async function buscarMovie() {
 
 function checkMovieIsFarites(id) {
 
-    const movie = getFilmeFavoritos() || [];
+    const movie = storage.getFilmefavoritos() || [];
+    console.log(movie)
     const res = movie.find(item => item.id == id);
     return res;
 
@@ -149,37 +153,29 @@ function coracaoBtn (e, movie) {
     console.log(e.target.src.includes(favorite.notFavotied))
     if(e.target.src.includes(favorite.notFavotied)){
         e.target.src = favorite.favorited;
-        salveMovie(movie)
+        storage.salveMovie(movie);
         
 
     }else{
         
         e.target.src = './img/icons8-favorite-96.png';
         
-        removeMovie(movie.id);
+        storage.removeMovie(movie.id);
     }
        
 }
 
-function salveMovie (filme) {
-    const movies = getFilmeFavoritos() || [];
-    console.log(movies)
-    movies.push(filme)
-    const strinFilme = JSON.stringify(movies);
-    localStorage.setItem('filme', strinFilme);
-}
-function getFilmeFavoritos() {
-    return JSON.parse(localStorage.getItem('filme')) || [] ;
-}
+// function salveMovie (filme) {
+//     const movies = storage.getFilmefavotitos() || [];
+//     console.log(movies)
+//     movies.push(filme)
+//     const strinFilme = JSON.stringify(movies);
+//     localStorage.setItem('filme', strinFilme);
+// }
 
-function removeMovie(id) {
-    const movies = getFilmeFavoritos() || [];
 
-    const encontraFilme = movies.find(e => e.id == id);
-    const newMovies = movies.filter(item => item.id != encontraFilme.id);
-    console.log(newMovies)
-    
-    localStorage.setItem('filme', JSON.stringify(newMovies));
+// function getFilmeFavoritos() {
+//     return JSON.parse(localStorage.getItem('filme')) || [] ;
+// }
 
-}
 

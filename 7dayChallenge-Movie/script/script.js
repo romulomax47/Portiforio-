@@ -62,10 +62,10 @@ async function buscarMovie() {
 
 function checkMovieIsFarites(id) {
 
-    console.log(id);
     const movie = getFilmeFavoritos() || [];
     const res = movie.find(item => item.id == id);
     return res;
+
 }
 
 function renderMovie (movie) {
@@ -153,7 +153,10 @@ function coracaoBtn (e, movie) {
         
 
     }else{
-        e.target.src = './img/icons8-favorite-96.png'
+        
+        e.target.src = './img/icons8-favorite-96.png';
+        
+        removeMovie(movie.id);
     }
        
 }
@@ -168,3 +171,15 @@ function salveMovie (filme) {
 function getFilmeFavoritos() {
     return JSON.parse(localStorage.getItem('filme')) || [] ;
 }
+
+function removeMovie(id) {
+    const movies = getFilmeFavoritos() || [];
+
+    const encontraFilme = movies.find(e => e.id == id);
+    const newMovies = movies.filter(item => item.id != encontraFilme.id);
+    console.log(newMovies)
+    
+    localStorage.setItem('filme', JSON.stringify(newMovies));
+
+}
+

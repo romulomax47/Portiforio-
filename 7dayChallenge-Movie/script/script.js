@@ -3,14 +3,21 @@ import { api_key } from "./api/apiKey.js";
 import  getMovie from './getMovies.js';
 import serchMovie from './searchMovie.js'
 const input = document.querySelector('#input-movie');
-// btn pesquisar movie
-// const btn_coracao = document.querySelectorAll('.coracao')
+const checkBoxStatus = document.querySelector('input[type="checkbox"]');
 
+checkBoxStatus.addEventListener('change', () => {
 
+    const movies =  getFilmeFavoritos() || [];
+    console.log(movies)
+
+    movieContainer.innerHTML = '';
+    movies.forEach(e => renderMovie(e));
+
+})
 
 const movieContainer = document.querySelector('.container');
 
-window.onload = async function(){''
+window.onload = async function(){
 
     const movie  = await getMovie();
     movie.forEach(movie => renderMovie(movie));
@@ -53,15 +60,25 @@ async function buscarMovie() {
 }
 
 
+function checkMovieIsFarites(id) {
+
+    console.log(id);
+    const movie = getFilmeFavoritos() || [];
+    const res = movie.find(item => item.id == id);
+    return res;
+}
+
 function renderMovie (movie) {
     const {id, overview, poster_path, title, release_date, vote_average } = movie;
-    const isFavorito = false;
+
+    const isFavorito =  checkMovieIsFarites(id);
+    console.log(isFavorito)
     const img = `https://image.tmdb.org/t/p/w500${poster_path}`
 
     const movieElement = document.createElement('div');
 
     movieElement.classList.add('movie')
-    movieElement.setAttribute('id', id);
+   
     movieContainer.appendChild(movieElement)
 
 
@@ -102,8 +119,9 @@ function renderMovie (movie) {
     //coração/
     const cardCora = document.createElement('figure');
     cardCora.classList.add('coracao')
-    cardCora.addEventListener('click' , coracaoBtn)
+    cardCora.setAttribute('id', id)
     const imgCora = document.createElement('img');
+    imgCora.addEventListener('click' , (e) => coracaoBtn(e, movie) )
     imgCora.src = isFavorito ? './img/heart.png': './img/icons8-favorite-96.png';
     imgCora.alt = 'icon-coração';
     imgCora.classList.add('cora')
@@ -119,9 +137,10 @@ function renderMovie (movie) {
 
 }
 
-function coracaoBtn (e) {
 
-    // alert('ok')
+
+function coracaoBtn (e, movie) {
+
     const favorite = {
         favorited :'./img/heart.png',
         notFavotied : '/img/icons8-favorite-96.png'
@@ -130,6 +149,8 @@ function coracaoBtn (e) {
     console.log(e.target.src.includes(favorite.notFavotied))
     if(e.target.src.includes(favorite.notFavotied)){
         e.target.src = favorite.favorited;
+        salveMovie(movie)
+        
 
     }else{
         e.target.src = './img/icons8-favorite-96.png'
@@ -137,3 +158,13 @@ function coracaoBtn (e) {
        
 }
 
+function salveMovie (filme) {
+    const movies = getFilmeFavoritos() || [];
+    console.log(movies)
+    movies.push(filme)
+    const strinFilme = JSON.stringify(movies);
+    localStorage.setItem('filme', strinFilme);
+}
+function getFilmeFavoritos() {
+    return JSON.parse(localStorage.getItem('filme')) || [] ;
+}

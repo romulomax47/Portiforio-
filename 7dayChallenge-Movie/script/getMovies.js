@@ -1,4 +1,4 @@
-import {api_key } from './api/apiKey.js'
+import {api_key } from './helpers/apiKey.js'
 
 
 async function getMovie () {                       // popular

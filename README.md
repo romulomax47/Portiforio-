@@ -18,7 +18,7 @@ Praticar
 <td> 
 <h2>Preenchimento de endereço</h2>
 
-<a href = "https://romulomax47.github.io/Portiforio-/Autocompleta-de-endere-">
+<a href = "https://romulomax47.github.io/Portiforio-/Autocompleta-de-endere-o">
 <img src = "./img/cep.png" width = "250px">
  </a>
 </td>

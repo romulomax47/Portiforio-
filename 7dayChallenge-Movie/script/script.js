@@ -1,23 +1,20 @@
 
-
 import { storage } from './helpers/localstorage.js'
 import  getMovie from './getMovies.js';
 import serchMovie from './searchMovie.js'
 const input = document.querySelector('#input-movie');
 const checkBoxStatus = document.querySelector('input[type="checkbox"]');
 
-
-
-
 checkBoxStatus.addEventListener('change', () => {
 
-    const movies =  storage.getFilmefavoritos() || [];
+    const movies =  storage.getFilmefavotitos() || [];
     console.log(movies)
 
     movieContainer.innerHTML = '';
     movies.forEach(e => renderMovie(e));
 
-})
+});
+
 const movieContainer = document.querySelector('.container');
 
 window.onload = async function(){
@@ -65,7 +62,7 @@ async function buscarMovie() {
 
 function checkMovieIsFarites(id) {
 
-    const movie = storage.getFilmefavoritos() || [];
+    const movie = storage.getFilmefavotitos() || [];
     console.log(movie)
     const res = movie.find(item => item.id == id);
     return res;
@@ -116,16 +113,16 @@ function renderMovie (movie) {
     const span = document.createElement('span');
     span.innerHTML = vote_average;
     
-    cardStar.appendChild(imgStar)
+    cardStar.appendChild(imgStar);
     cardStar.appendChild(span);
     infos.appendChild(cardStar);
 
     //coração/
     const cardCora = document.createElement('figure');
-    cardCora.classList.add('coracao')
-    cardCora.setAttribute('id', id)
+    cardCora.classList.add('coracao');
+    cardCora.setAttribute('id', id);
     const imgCora = document.createElement('img');
-    imgCora.addEventListener('click' , (e) => coracaoBtn(e, movie) )
+    imgCora.addEventListener('click' , (e) => coracaoBtn(e, movie));
     imgCora.src = isFavorito ? './img/heart.png': './img/icons8-favorite-96.png';
     imgCora.alt = 'icon-coração';
     imgCora.classList.add('cora')
@@ -150,7 +147,7 @@ function coracaoBtn (e, movie) {
         notFavotied : '/img/icons8-favorite-96.png'
     }
 
-    console.log(e.target.src.includes(favorite.notFavotied))
+    // console.log(e.target.src.includes(favorite.notFavotied))
     if(e.target.src.includes(favorite.notFavotied)){
         e.target.src = favorite.favorited;
         storage.salveMovie(movie);

@@ -8,12 +8,12 @@ function salveMovie(movie) {
 }
 
 
-function getFilmefavoritos() {
+function getFilmefavotitos() {
     return JSON.parse(localStorage.getItem('filme')) || [];
 }
 
 function removeMovie(id) {
-    const movies = getFilmefavoritos() || [];
+    const movies = getFilmefavotitos() || [];
 
     const encontraFilme = movies.find(e => e.id == id);
     const newMovies = movies.filter(item => item.id != encontraFilme.id);
@@ -26,7 +26,7 @@ function removeMovie(id) {
 
 
 export const storage = {
-    getFilmefavoritos,
+    getFilmefavotitos,
     salveMovie,
     removeMovie
 }

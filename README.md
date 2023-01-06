@@ -33,7 +33,7 @@
 <img src = "./img/filme.png" width = "250px">
  </a>
 
- [codigo]('https://github.com/romulomax47/Portiforio-/tree/main/7dayChallenge-Movie')
+ [código]('https://github.com/romulomax47/Portiforio-/tree/main/7dayChallenge-Movie')
 </td>
 
 </tr>

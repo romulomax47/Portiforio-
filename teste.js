@@ -1,5 +1,5 @@
 
 
-const test = [1, 2, 3, 4].filter(item => item == 2);
+let src = 'http://127.0.0.1:5500/7dayChallenge-Movie/img/heart.png'
 
-console.log(test);
+console.log(src.includes('romulo'))

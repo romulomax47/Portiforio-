@@ -1,16 +1,15 @@
 
-
 function salveMovie(movie) {
    const movies =   getFilmefavotitos() || [];
    movies.push(movie);
 
    localStorage.setItem('filme', JSON.stringify(movies))
-}
+};
 
 
 function getFilmefavotitos() {
     return JSON.parse(localStorage.getItem('filme')) || [];
-}
+};
 
 function removeMovie(id) {
     const movies = getFilmefavotitos() || [];
